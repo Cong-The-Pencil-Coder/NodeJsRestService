@@ -1,8 +1,6 @@
-import express from 'express';
-import bodyParser from "body-parser";
-
-import personsRoutes from './routes/persons.js';
-
+const express = require('express');
+const bodyParser = require("body-parser");
+const personsRoutes = require('./routes/persons.cjs');
 const app = express();
 const PORT = 5000;
 

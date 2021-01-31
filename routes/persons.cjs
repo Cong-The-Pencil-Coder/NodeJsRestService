@@ -1,9 +1,10 @@
-import express from 'express';
+const express = require('express');
 
-import multer from 'multer';
+const multer = require('multer');
+
 const upload = multer();
 
-import { getAllPersons, newForm, createPerson, getPerson, editForm, updatePerson, deletePerson } from '../controllers/persons.js';
+const { getAllPersons, newForm, createPerson, getPerson, editForm, updatePerson, deletePerson } = require('../controllers/persons.cjs');
 
 const router = express.Router();
 
@@ -56,4 +57,4 @@ router.put('/:id', updatePerson);
  */
 router.delete('/:id', deletePerson);
 
-export default router;
+module.exports = router;
