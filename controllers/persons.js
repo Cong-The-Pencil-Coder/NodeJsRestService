@@ -1,15 +1,14 @@
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { createRequire } from 'module';
-
+import * as fs from 'fs';
+import * as path from 'path';
 // Code related to directory pathing
-const require = createRequire(import.meta.url);
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const path = require('path')
-const fs = require('fs')
-let reqPath = path.join(__dirname, '../');
 
+let reqPath = path.join(__dirname, '../');
 let persons = [];
 
 //Read json file
