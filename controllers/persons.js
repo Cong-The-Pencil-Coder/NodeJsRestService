@@ -1,6 +1,5 @@
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { createRequire } from 'module';
 import * as fs from 'fs';
 import * as path from 'path';
 // Code related to directory pathing
