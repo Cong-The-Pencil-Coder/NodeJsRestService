@@ -1,8 +1,11 @@
-const dirname = require('path')
-const fileURLToPath = require('url')
-const createRequire = require('module')
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { createRequire } from 'module';
 
 // Code related to directory pathing
+const require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const path = require('path')
 const fs = require('fs')
 let reqPath = path.join(__dirname, '../');
@@ -51,16 +54,16 @@ jsonReader('./person.json', (err, content) => {
     persons = content;
 })
 
-const getAllPersons = (req, res) => {
+export const getAllPersons = (req, res) => {
     res.send(persons);
 }
 
 // Shows new form for new person
-const newForm = (req, res) => {
+export const newForm = (req, res) => {
     res.sendFile(reqPath + "html/new.html");
 }
 
-const createPerson = (req, res) => {
+export const createPerson = (req, res) => {
     const newPerson = parsePerson(req.body); //req.body contains name, age, id
     const foundPerson = persons.find((person) => person.id === newPerson.id); //Find the person with the corresponding ID
 
@@ -78,7 +81,7 @@ const createPerson = (req, res) => {
     }
 }
 
-const getPerson = (req, res) => {
+export const getPerson = (req, res) => {
     const { id } = req.params; // req.params contains the ID. This is from the path: persons/[ID]
     const intID = parseInt(id)
     const foundPerson = persons.find((person) => person.id === intID); //Find the person with the corresponding ID
@@ -88,7 +91,7 @@ const getPerson = (req, res) => {
 }
 
 // To do: Shows edit form for one person
-const editForm = (req, res) => {
+export const editForm = (req, res) => {
     const { id } = req.params; // req.params contains the ID. This is from the path: persons/[ID]
     const intID = parseInt(id)
     const foundPerson = persons.find((person) => person.id === intID); //Find the person with the corresponding ID
@@ -97,7 +100,7 @@ const editForm = (req, res) => {
     else res.status(404).send(`Person with id ${id} does not exist.`);
 }
 
-const updatePerson = (req, res) => {
+export const updatePerson = (req, res) => {
     const { id } = req.params; // req.params contains the ID. This is from the path: persons/[ID]
     const intID = parseInt(id)
     const { name, age } = req.body; //Gets the name and age from req.body. This info will replace the old info in the database
@@ -111,7 +114,7 @@ const updatePerson = (req, res) => {
     else res.status(404).send(`Person with id ${id} does not exist.`);
 }
 
-const deletePerson = (req, res) => {
+export const deletePerson = (req, res) => {
     const { id } = req.params; // req.params contains the ID. This is from the path: persons/[ID]
     const intID = parseInt(id)
     const foundPerson = persons.find((person) => person.id === intID); //Find the person with the corresponding ID
@@ -122,12 +125,3 @@ const deletePerson = (req, res) => {
     }
     else res.status(404).send(`Person with id ${id} does not exist.`);
 }
-
-exports.getAllPersons = getAllPersons;
-exports.newForm = newForm;
-exports.createPerson = createPerson;
-exports.getPerson = getPerson;
-exports.getAllPersons = getAllPersons;
-exports.editForm = editForm;
-exports.updatePerson = updatePerson;
-exports.deletePerson = deletePerson;
