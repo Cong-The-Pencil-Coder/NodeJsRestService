@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/b65e676f-dac3-4267-ab09-8bd2ac309b1f/resourceGroups/NodeJS-farfar336/providers/Microsoft.Web/sites/NodeJS-farfar336",
-    "appService.deploySubpath": "."
-}
