@@ -25,3 +25,9 @@ app.use('/persons', personsRoutes);
 app.get('/', (req, res) => res.send('Hello from homepage.'));
 
 app.listen(PORT, () => console.log(`Server Running on port: http://localhost:${PORT}`));
+
+export default async function (context, req) {
+  context.res = {
+      body: process.version
+  };
+};
