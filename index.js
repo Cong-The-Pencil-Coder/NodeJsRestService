@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const personsRoutes = require('./routes/persons.js');
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
