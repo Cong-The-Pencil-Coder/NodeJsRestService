@@ -3,7 +3,7 @@ import express from 'express';
 import multer from 'multer';
 const upload = multer();
 
-import { getAllPersons, newForm, createPerson, getPerson, editForm, updatePerson, deletePerson } from '../controllers/persons.js';
+import { getAllPersons, newForm, createPerson, getPerson, editForm, updatePerson, deletePerson } from '../controllers/persons.mjs';
 
 const router = express.Router();
 
