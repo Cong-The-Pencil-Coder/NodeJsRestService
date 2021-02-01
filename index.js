@@ -1,7 +1,7 @@
-import express from 'express';
-import bodyParser from "body-parser";
+const express = require('express');
+const bodyParser = require("body-parser");
 
-import personsRoutes from './routes/persons.mjs';
+const personsRoutes = require('./routes/persons.js');
 
 const app = express();
 const PORT = 5000;
@@ -25,9 +25,3 @@ app.use('/persons', personsRoutes);
 app.get('/', (req, res) => res.send('Hello from homepage.'));
 
 app.listen(PORT, () => console.log(`Server Running on port: http://localhost:${PORT}`));
-
-export default async function (context, req) {
-  context.res = {
-      body: process.version
-  };
-};
