@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const personsRoutes = require('./routes/persons.js');
 
 const app = express();
-const PORT = 3000;
-const HOSTNAME = '0.0.0.0';
+const PORT = 8080;
+// const HOSTNAME = '0.0.0.0';
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
@@ -25,4 +25,4 @@ app.use('/persons', personsRoutes);
 // "Hello from homepage" is shown  when visiting http://localhost:5000/
 app.get('/', (req, res) => res.send('Hello from homepage.'));
 
-app.listen(PORT, HOSTNAME, () => console.log(`Server Running on port: http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server Running on port: http://localhost:${PORT}`));
